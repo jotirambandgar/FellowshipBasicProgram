@@ -1,0 +1,9 @@
+[{"name":"rice1","weight":12,"price":50},
+{"name":"rice2","weight":42,"price":60},
+{"name":"rice3","weight":44,"price":80},
+{"name":"wheat1","weight":25,"price":20},
+{"name":"wheat2","weight":12,"price":30},
+{"name":"wheat3","weight":33,"price":30},
+{"name":"pulses1","weight":21,"price":43},
+{"name":"pulse2","weight":23,"price":32},
+{"name":"pulses3","weight":44,"price":23}]

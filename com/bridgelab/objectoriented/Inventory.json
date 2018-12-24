@@ -1,0 +1,14 @@
+{
+"INVENTORY":[
+{"name":"rice",
+"Weight":"0.029gms",
+"price":"35INR"},
+
+{"name":"pulses",
+"Weight":"0.5gms",
+"pricePerKg":"50INR"},
+{"name":"wheat",
+"Weight":"0.043gms",
+"pricePerKG":"60INR"}
+]
+}

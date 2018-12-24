@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path=""/>
+	<classpathentry kind="lib" path="/home/bridgeit/Desktop/jars/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/home/bridgeit/Desktop/jars/jackson-mapper-asl-1.9.13.jar"/>
+	<classpathentry kind="lib" path="/home/bridgeit/Desktop/jars/jackson-core-asl-1.9.13.jar"/>
+	<classpathentry kind="lib" path="/home/bridgeit/Downloads/junit-4.13-beta-1.jar"/>
+	<classpathentry kind="lib" path="/home/bridgeit/Downloads/hamcrest-core-2.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="output" path=""/>
+</classpath>
