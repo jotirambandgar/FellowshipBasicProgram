@@ -1,4 +1,7 @@
 package com.bridgelab.utilit;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
@@ -225,17 +228,7 @@ System.out.println("number of times he loss="+loss);
 System.out.println("percentage of win="+Perc_win);
 System.out.println("percentage of loss="+perc_loss);
 }
-//=====================================================coupons===================================================================================================================
- /**
- * @param number
- */
-public static void uniqueRandom(int coupons)
-{
-	int count = 0;
-	while(count != coupons)
-	{
-		
-	}
-	
-}
+//=====================================================Write File===================================================================================================================
+//=====================================================Balance Paranthesis=================================================
+
 }

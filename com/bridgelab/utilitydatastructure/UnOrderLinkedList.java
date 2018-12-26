@@ -1,7 +1,7 @@
 package com.bridgelab.utilitydatastructure;
 
 
-public class LinkedList<T>
+public class UnOrderLinkedList<T>
 {
 Node head;
 int length = 0;
@@ -19,11 +19,21 @@ class Node<T>
 //========================================add first=========================================================================================================
 public void addFirst(T data)
 {
+	
+		
 	Node new_node = new Node(data);
+	if(head == null)
+	{
+		head = new_node;
+		length++;
+		new_node.next = null;
+		return;
+	}
 	new_node.next = head;
 	head = new_node;
+	length++;
 }
-//========================================add element in linkedList=========================================================================
+//========================================add element in order=========================================================================
 
 public void append(T data)
 {
@@ -99,7 +109,7 @@ public int length()
 {
 	return length;
 }
-//================================search data in LinkedList=================================================================================================
+//================================search data in UnOrderLinkedList=================================================================================================
 	public int positionOf(T data)
 	{
 		int count  = 1 ;
@@ -129,13 +139,12 @@ public int length()
 		Node new_node = head;
 		int size = length();
 		System.out.print("[");
-		for(int i = 0 ; i <size-1;i++)
+		for(int i = 0 ; i <size;i++)
 		{
-			if(new_node.data!=null)
-			{
+			
 			System.out.print(new_node.data+",");
 			new_node = new_node.next;
-			}
+			
 		}
 		System.out.print("]");
 		
@@ -146,11 +155,26 @@ public int length()
 	{
 		return (T)head.data;
 	}
+//=================================================first position element==========================================================================
+		public <T>T lastElement()
+		{
+			Node temp = head;
+			while(temp.next != null)
+			{
+				temp = temp.next;
+			}
+			return (T) temp.data;
+		}
+	
 //==================================================element at particular position===============================================================================
 	public String get(int position)
 	{
 		Node new_node = head;
 		int count = 1;
+		if(position == 1)
+		{
+			return (String)new_node.data;
+		}
 		String element;
 			while(new_node.next != null)
 			{
@@ -158,7 +182,7 @@ public int length()
 			count++;
 			if(count == position)
 			{
-				element = new_node.data.toString();
+				element = (String)new_node.data;
 				return element;
 			}
 			}
@@ -189,7 +213,7 @@ public boolean isPresent(T data)
 	return false;
 	
 }
-//==========================================remove data from linkedlist===============================================
+//==========================================remove data element from linkedlist===============================================
 public void deleteNode(T data)
 {
 Node temp = head;
