@@ -2,15 +2,15 @@ package com.bridgelab.utilitydatastructure;
 
 
 
-public class OrderedList 
+public class OrderedList<T> 
 {
 	Node head;
 	int length = 0;
-class Node
+class Node<T>
 {
-	int data;
+	T data;
 	Node next;
-	public Node(int data)
+	public Node(T data)
 	{
 		this.data = data;
 		this.next = null; 
@@ -19,7 +19,8 @@ class Node
 }
 //================================add node as well as sort it======================================================
 
-public void add(int data)
+@SuppressWarnings("unchecked")
+public <T extends Comparable<T>> void add(T data)
 {
 	Node new_node = new Node(data);
 	Node temp = head;
@@ -30,7 +31,7 @@ public void add(int data)
 		length++;
 		return;
 	}
-	if(head.data > data)
+	 if(((T)head.data).compareTo(data)>0.5)
 	{
 		new_node.next = head;
 		head = new_node;
@@ -41,7 +42,7 @@ public void add(int data)
 	{
 		prev = temp;
 		temp = temp.next;
-		if(temp.data>data)
+		if(((T)temp.data).compareTo(data)>0.5)
 		{
 			prev.next =new_node;
 			new_node.next =temp;
@@ -59,11 +60,11 @@ public void add(int data)
 	
 }
 //==========================================remove data element from linkedlist===============================================
-public void remove(int data)
+public void remove(T data)
 {
 Node temp = head;
 Node prev = temp;
-if(temp.data == data) // if head contain key
+if(((T)temp.data).equals(data)) // if head contain key
 {
 	//head = null; 
 	head=temp.next;//change head
@@ -74,7 +75,7 @@ while(temp.next != null )
 {
 	prev = temp;
 	temp =temp.next;
-	if(temp.data == (data))
+	if(((T)temp.data).equals(data))
 	{
 		prev.next = temp.next;
 		length--;
@@ -87,7 +88,7 @@ return;
 }
 }
 //============================================check my element is present in linkedlist==============================================================================
-public boolean search(int data)
+public boolean search(T data)
 {
 	Node temp = head;
 	if(head.data == data)
@@ -106,7 +107,7 @@ public boolean search(int data)
 	
 }
 //================================search data in UnOrderLinkedList=================================================================================================
-	public int index(int data)
+	public int index(T data)
 	{
 		int count  = 1 ;
 		Node temp = head;
@@ -158,25 +159,25 @@ public boolean search(int data)
 			return length;
 		}
 //========================================element at particular position===============================================================================
-		public int get(int position)
+		public <T>T get(int position)
 		{
 			Node new_node = head;
 			int count = 1;
 			if(position == 1)
 			{
-				return new_node.data;
+				return (T) new_node.data;
 			}
-			int element;
+			T element;
 				while(new_node.next != null)
 				{
 				new_node = 	new_node.next;
 				count++;
 				if(count == position)
 				{
-					element = new_node.data;
+					element =  (T) new_node.data;
 					return element;
 				}
 				}
-			return 0 ;
+			return null ;
 		}
 }

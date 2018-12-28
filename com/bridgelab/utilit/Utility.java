@@ -1,7 +1,12 @@
 package com.bridgelab.utilit;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
@@ -230,5 +235,46 @@ System.out.println("percentage of loss="+perc_loss);
 }
 //=====================================================Write File===================================================================================================================
 //=====================================================Balance Paranthesis=================================================
+//==============================read file contains===================================================================================
+public static String readAllFromFile(String address)
+{
+	String line=null;
+	String readedFile="";
+	try 
+	{
+		FileReader filereader=new FileReader(address); 
+		BufferedReader bufferedReader=new BufferedReader(filereader);
+		while((line=bufferedReader.readLine())!= null)
+		{
+			readedFile+=line;
+		}
+		bufferedReader.close();
+	}
+	catch(FileNotFoundException fileNotFoundException)
+	{
+		System.out.println("your file is not found in the location '"+address+"'");
+	}
+	catch(IOException ioException)
+	{
+		System.out.println("Error in reading your file '"+address+"'");
+	}
+	return readedFile;
 
+}
+//=====================================Write data into file=========================================
+public static  void writeIntoFile(String address,String content)throws Exception
+{
+	FileWriter filewriter=new FileWriter(address);
+	BufferedWriter bufferedwriter=new BufferedWriter(filewriter); 
+	bufferedwriter.write(content);
+	bufferedwriter.close();
+}
+//=====================================print array===================================================
+public void printStringArray(String array[])
+{
+	for(int i = 0; i < array.length; i++)
+	{
+		System.out.println(array[i]);
+	}
+}
 }

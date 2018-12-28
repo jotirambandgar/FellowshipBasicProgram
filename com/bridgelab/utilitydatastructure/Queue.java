@@ -8,7 +8,7 @@ UnOrderLinkedList <T> LinkedList =  new UnOrderLinkedList<>();
 
 public void enqueue(T data)
 {
-	LinkedList.append(data);
+	LinkedList.add(data);
 }
 
 //============================remove first in element=============================================================
@@ -28,7 +28,7 @@ public boolean isEmpty()
 //====================================find size of stack==================================================================
 public int size()
 {
-	return LinkedList.length();
+	return LinkedList.size();
 }
 public <T>T topElement()
 {

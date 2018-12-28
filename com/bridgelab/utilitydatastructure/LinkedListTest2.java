@@ -14,11 +14,11 @@ public class LinkedListTest2 {
 	// @test: means tells JUnit that this public void method (Test Case here) to which it is attached can be run as a test case.
 	public void testAddFirst()
 	{
-		ll.append("amol");
-		ll.append("deepak");
-		ll.append("ansar");
-		ll.append("aman");
-		ll.append("raman");
+		ll.add("amol");
+		ll.add("deepak");
+		ll.add("ansar");
+		ll.add("aman");
+		ll.add("raman");
 		ll.addFirst("manohar"); //add element at first position
 		System.out.println(ll.get(1));
 		assertEquals("manohar", ll.get(1)); //check my first element is equal is expected 
@@ -33,8 +33,8 @@ public class LinkedListTest2 {
 	@Test
 	public void testAppend()
 	{
-		int Prev_length = ll.length();
-		ll.append("dog");
+		int Prev_length = ll.size();
+		ll.add("dog");
 		assertTrue(Prev_length<ll.length);//check my length is greater than previous length
 	}
 	
@@ -51,44 +51,44 @@ public class LinkedListTest2 {
 	@Test
 	public void testRemoveData()
 	{
-		ll.append("amol");
-		ll.append("deepak");
-		ll.append("ansar");
-		ll.append("aman");
-		ll.append("raman");
-		ll.deleteNode("ansar");
-		assertFalse(ll.isPresent("ansar"));
+		ll.add("amol");
+		ll.add("deepak");
+		ll.add("ansar");
+		ll.add("aman");
+		ll.add("raman");
+		ll.remove("ansar");
+		assertFalse(ll.search("ansar"));
 	}
 //5=========================test my remove method work correctly==========================================================	
 	@Test
 	public void testRemoveFirst()
 	{
 
-		ll.append("amol");
-		ll.append("deepak");
-		ll.append("ansar");
-		ll.append("aman");
-		ll.append("raman");
+		ll.add("amol");
+		ll.add("deepak");
+		ll.add("ansar");
+		ll.add("aman");
+		ll.add("raman");
 		ll.removeFirst();
-		assertFalse(ll.isPresent("amol"));
+		assertFalse(ll.search("amol"));
 	}
 //6=========================test my Length method work correctly==========================================================
 	@Test
 	public void testLength()
 	{
-		int length1 = ll.length();
-		ll.append("sdsd");
-		assertTrue(length1<ll.length());
+		int length1 = ll.size();
+		ll.add("sdsd");
+		assertTrue(length1<ll.size());
 	}
 //7================================test position of element work properly=======================================================================	
 	@Test
 	public void testPositionElement()
 	{
-		ll.append("amol");
-		ll.append("deepak");
-		ll.append("ansar");
-		ll.append("aman");
-		ll.append("raman");
+		ll.add("amol");
+		ll.add("deepak");
+		ll.add("ansar");
+		ll.add("aman");
+		ll.add("raman");
 		int position = ll.positionOf("deepak");
 		assertEquals(2,position);
 	}
@@ -96,11 +96,11 @@ public class LinkedListTest2 {
 	@Test
 	public void testInsertAt()
 	{
-		ll.append("amol");
-		ll.append("deepak");
-		ll.append("ansar");
-		ll.append("aman");
-		ll.append("raman");
+		ll.add("amol");
+		ll.add("deepak");
+		ll.add("ansar");
+		ll.add("aman");
+		ll.add("raman");
 		ll.addAt(3, "bridgelab");
 		//System.out.println(ll.get(4));
 		assertEquals("bridgelab", ll.get(3)); // get element at particular position and check its equal or not
@@ -109,11 +109,11 @@ public class LinkedListTest2 {
 	@Test
 	public void testRemoveAt()
 	{
-		ll.append("amol");
-		ll.append("deepak");
-		ll.append("ansar");
-		ll.append("aman");
-		ll.append("raman");
+		ll.add("amol");
+		ll.add("deepak");
+		ll.add("ansar");
+		ll.add("aman");
+		ll.add("raman");
 		ll.removeAt(3);
 		assertFalse("ansar"==ll.get(3));
 	}

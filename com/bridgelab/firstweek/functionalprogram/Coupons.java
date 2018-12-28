@@ -9,7 +9,7 @@ public class Coupons
 	{
 		System.out.println("Enter numbers of coupons");
 		int coupons = Utility.intInput();
-		Utility.uniqueRandom(coupons);
+		//Utility.uniqueRandom(coupons);
 		
 	}
 

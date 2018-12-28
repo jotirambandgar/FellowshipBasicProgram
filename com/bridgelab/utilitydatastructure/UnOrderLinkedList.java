@@ -35,7 +35,7 @@ public void addFirst(T data)
 }
 //========================================add element in order=========================================================================
 
-public void append(T data)
+public void add(T data)
 {
 Node new_node = new Node(data);
 Node temp = head;
@@ -105,7 +105,7 @@ public void removeLast()
 	length--;
 }
 //===================================find length===============================================================================================================
-public int length()
+public int size()
 {
 	return length;
 }
@@ -137,7 +137,7 @@ public int length()
 	public void show()
 	{
 		Node new_node = head;
-		int size = length();
+		int size = size();
 		System.out.print("[");
 		for(int i = 0 ; i <size;i++)
 		{
@@ -195,7 +195,7 @@ public boolean isEmpty()
 	return(length == 0);
 }
 //============================================check my element is present in linkedlist==============================================================================
-public boolean isPresent(T data)
+public boolean search(T data)
 {
 	Node temp = head;
 	if(head.data == data)
@@ -214,7 +214,7 @@ public boolean isPresent(T data)
 	
 }
 //==========================================remove data element from linkedlist===============================================
-public void deleteNode(T data)
+public void remove(T data)
 {
 Node temp = head;
 Node prev = temp;

@@ -19,7 +19,7 @@ public class Dequeu<T>
    
      public void addRare(T data)
      {
-    	 linkedlist.append(data);
+    	 linkedlist.add(data);
      }
      
 //==============================remove element from front============================================
@@ -46,7 +46,7 @@ public class Dequeu<T>
    
      public int size()
      {
-    	 return linkedlist.length();
+    	 return linkedlist.size();
      }
    
 //=================================return front element====================================================

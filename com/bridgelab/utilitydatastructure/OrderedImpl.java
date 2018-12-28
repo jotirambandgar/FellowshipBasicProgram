@@ -27,12 +27,12 @@ public class OrderedImpl {
 	{
 		System.out.println(s);
 		String str[] = s.split(" ");
-		operation(str);
+		operation(str,s);
 	}
 	}
-	public static void operation(String arr[]) throws Exception
+	public static void operation(String arr[],String s) throws Exception
 	{
-		OrderedList oll = new OrderedList();
+		OrderedList<Integer> oll = new OrderedList<>();
 		for(int i = 0; i < arr.length ;i++ )
 		{
 			oll.add(Integer.parseInt((arr[i])));
@@ -44,23 +44,18 @@ public class OrderedImpl {
 	     boolean result = oll.search(number);
 	     System.out.println("is my number present in list:"+result);
 	     if(result == true)
-	     {
+	     {      
+	    	 System.out.println("Remove from list:"+number);
 	    	 	oll.remove(number);
 	     }
 	     else
 	     {
+	    	 System.out.println("add to list:"+number);
 	    	 oll.add(number);
 	     }
 	     System.out.println("UnOrderLinkedList afer operation:");
 	     oll.show();
-	     BufferedWriter writer  = new BufferedWriter(new FileWriter("/home/bridgeit/eclipse-workspace/Fellowship/Fellowship/com/bridgelab/utilitydatastructure/number.txt"));
-	     int count = 0;
-	     while(count != oll.length())
-	     {
-	    	 writer.write(oll.get(count+1));
-	    	 count++;
-	     }
-	     writer.close();
-	}
+     
 
+}
 }
