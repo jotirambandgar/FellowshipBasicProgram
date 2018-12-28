@@ -86,7 +86,7 @@ public void removeFirst()
 	length--;
 }
 //===================================remove last element===============================================================================
-public void removeLast()
+public void pop()
 {
 	
 	Node prev_node = head;
@@ -240,7 +240,7 @@ return;
 
 }
 //=================================================remove at position==============================================================================
-public void removeAt(int position)
+public void pop(int position)
 {
 	
 	int count =1;

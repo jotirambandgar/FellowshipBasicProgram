@@ -24,7 +24,7 @@ public class UnOrderListTest {
     	     list.display();
     	     System.out.println("Enter Search word:");
     	     String search = Utility.stringInput();
-    	     assertFalse(list.isEmpty());//test after adding my list is empty
+    	     assertFalse(list.isEmpty());           //test after adding my list is empty
      	  
     	     System.out.println(""+list.search(search));
     	     if(list.search(search))     
@@ -37,16 +37,16 @@ public class UnOrderListTest {
     	    	 assertFalse(list.search(search));//if element not present in list	
     	    	 list.add(search);
     	     }
-    	     list.display();
+    	     list.display();                      //display new list
     	     int i=1;
     	   String newList = "";
-    	    	while(i!=list.length()+1)
+    	    	while(i!=list.size()+1)
     	    	{
     	    		newList = newList+" "+list.get(i);
     	    		i++;
     	    	}
    
-    	     Utility.writeIntoFile(file, newList);
+    	     Utility.writeIntoFile(file, newList);     //write content of new linkedlist into file
     	     String newFilecontent =Utility.readAllFromFile(file);
     	     assertNotEquals(oldFileContent, newFilecontent); //test after performing operation file content change or not
     }

@@ -38,7 +38,7 @@ public class OrderedImpl {
 			oll.add(Integer.parseInt((arr[i])));
 			
 		}
-	     oll.show();
+	     oll.display();
 	     System.out.println("Enter search number");
 	     int number = Utility.intInput();
 	     boolean result = oll.search(number);
@@ -54,7 +54,7 @@ public class OrderedImpl {
 	    	 oll.add(number);
 	     }
 	     System.out.println("UnOrderLinkedList afer operation:");
-	     oll.show();
+	     oll.display();
      
 
 }

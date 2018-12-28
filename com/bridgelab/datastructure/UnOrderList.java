@@ -99,7 +99,7 @@ public class UnOrderList<T>
 		length--;
 	}
 	//===================================remove last element===============================================================================
-	public void removeLast()
+	public void pop()
 	{
 		
 		Node prev_node = head;
@@ -118,7 +118,7 @@ public class UnOrderList<T>
 		length--;
 	}
 //===================================find length===============================================================================================================
-	public int length()
+	public int size()
 	{
 		return length;
 	}
@@ -150,7 +150,7 @@ public class UnOrderList<T>
 		public void display()
 		{
 			Node new_node = head;
-			int size = length();
+			int size = size();
 			System.out.print("[");
 			for(int i = 0 ; i <size;i++)
 			{
@@ -178,9 +178,11 @@ public class UnOrderList<T>
 			public <T>T lastElement()
 			{
 				Node temp = head;
-				while(temp.next != null)
+				int count = size();
+				while(count != 0)
 				{
 					temp = temp.next;
+					count--;
 				}
 				return (T) temp.data;
 			}
@@ -261,7 +263,7 @@ public class UnOrderList<T>
 
 	}
 //=================================================remove at position==============================================================================
-	public void removeAt(int position)
+	public void popAt(int position)
 	{
 		
 		int count =1;

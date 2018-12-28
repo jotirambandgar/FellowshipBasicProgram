@@ -10,8 +10,10 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
+import com.bridgelab.datastructure.*;
 
-public class Utility {
+public class Utility 
+{
 	static Scanner scan = new Scanner(System.in); 
 //========================================Taking variable Input++++++++++++++++++++++++++++++++++++++++++
 
@@ -236,6 +238,11 @@ System.out.println("percentage of loss="+perc_loss);
 //=====================================================Write File===================================================================================================================
 //=====================================================Balance Paranthesis=================================================
 //==============================read file contains===================================================================================
+/**
+ * this method use for read content of file and return in string
+ * @param address ----> link of file
+ * @return---------->content of file
+ */
 public static String readAllFromFile(String address)
 {
 	String line=null;
@@ -262,6 +269,12 @@ public static String readAllFromFile(String address)
 
 }
 //=====================================Write data into file=========================================
+/**
+ * Write data into particular file
+ * @param address-->link of file
+ * @param content-->data which fill into file
+ * @throws Exception--->for file not found
+ */
 public static  void writeIntoFile(String address,String content)throws Exception
 {
 	FileWriter filewriter=new FileWriter(address);
@@ -269,12 +282,133 @@ public static  void writeIntoFile(String address,String content)throws Exception
 	bufferedwriter.write(content);
 	bufferedwriter.close();
 }
-//=====================================print array===================================================
+//=====================================print array================================================================================================================
 public void printStringArray(String array[])
 {
 	for(int i = 0; i < array.length; i++)
 	{
 		System.out.println(array[i]);
 	}
+}
+//=====================================Balance parenthesis==================================================================================================
+
+/**
+ * check my expression is balance or not
+ * @param expression-------->mathematical expression
+ * @return-->boolean value stack is empty or not
+ */
+public static boolean checkStable(String expression)
+{
+ Stack <Character> stack = new Stack<Character>();
+		
+	for(int  i = 0 ; i < expression.length(); i++)
+	{
+		if(expression.charAt(i)=='(' ||expression.charAt(i)=='{'||expression.charAt(i)=='[')
+		{
+		stack.push(expression.charAt(i));
+		}
+		if(expression.charAt(i)==')' && stack.peek().equals('('))
+		{
+		stack.pop();	
+		}
+		if(expression.charAt(i)=='}' && stack.peek().equals('{'))
+		{
+		stack.pop();	
+		}
+		if(expression.charAt(i)==']' && stack.peek().equals('['))
+		{
+		stack.pop();	
+		}
+	}
+	return stack.isEmpty();
+	
+}
+
+//=============================== bank counter==========================================================================================================================
+
+/**
+ * method for withdraw and deposit amount in bank
+ * @param balance ---> already present amount in bank 
+ * @param persons----> number of person in queue
+ * @return-----> final balance in bank
+ */
+public static int bankcounter(int balance,int persons)
+{
+	Queue<Integer> queue = new Queue<>();
+	int newbalance = 0;
+	int count = 1;
+	while(persons != 0 && balance > 0)
+	{
+		System.out.println("person: "+count);
+		System.out.println("1 .for Deposit ");//ask to user for deposit
+	 	System.out.println("2 .for withdraw");//ask to user for deposit
+	 	int choice = Utility.intInput();
+	 	int amount = 0;
+	 	switch(choice)
+	 	{
+	 	case 1:
+	 			System.out.println("Enter amount for Deposit");
+	 			amount = intInput();
+	 			queue.enqueue(amount);       // if want to deposit add money in queue
+	 			balance = balance + amount;
+	 			System.out.println("amount in bank:"+balance);
+	 			persons--;
+	 		 	count++;
+	 			break;
+	 	case 2:
+	 			System.out.println("Enter amount for Withdraw");
+	 			amount = intInput();
+	 			queue.enqueue(amount); // if want to 
+	 			balance = balance - amount;
+	 			System.out.println("amount in bank:"+balance);
+	 			persons--;
+	 		 	count++;
+	 			break;
+	 	}
+	 	
+	}
+	return (balance);
+}
+
+//===================================palindrom checker by deque=======================================================================================
+public static boolean palindromCheker(String check)
+{
+	Deque <Character> deque = new Deque<>(); 
+	boolean result = false ;
+	for(int i=0;i<check.length();i++)
+	{
+		char c =check.charAt(i);
+		//adding each character to the rear of the deque
+		deque.addRear(c);
+	}
+	int flag=0;
+
+	while(deque.size()>1)//Check the size of the deque greater than 1
+	{
+		char first = ((deque.removeFront()));
+		char last =(deque.removeRear());
+		deque.display();
+		System.out.println(first);
+		System.out.println(last);
+		if( first== last)
+		{
+			flag=0;
+			
+		}
+		else
+		{
+			flag = 1;
+			break;
+		}
+	}
+	if(flag==0)
+	{
+	result = true;
+	}
+	else
+	{
+		result = false;
+	}
+	return result;
 }
 }

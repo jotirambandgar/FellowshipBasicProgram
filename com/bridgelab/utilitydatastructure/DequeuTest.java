@@ -11,14 +11,14 @@ public class DequeuTest {
 	public void testAddFront()
 	{
 		Dequeu<Integer> dequeu = new Dequeu<>();
-		dequeu.addRare(1);
-		dequeu.addRare(2);
-		dequeu.addRare(3);
-		dequeu.addRare(4);
-		dequeu.addRare(5);
-		dequeu.addRare(6);
-		dequeu.addRare(7);
-		dequeu.addRare(8);
+		dequeu.addRear(1);
+		dequeu.addRear(2);
+		dequeu.addRear(3);
+		dequeu.addRear(4);
+		dequeu.addRear(5);
+		dequeu.addRear(6);
+		dequeu.addRear(7);
+		dequeu.addRear(8);
 		dequeu.addFront(10);
 		dequeu.addFront(110);
 		assertEquals(110, dequeu.frontElement());
@@ -39,8 +39,8 @@ public class DequeuTest {
 		dequeu.addFront(110111);
 		dequeu.addFront(310);
 		dequeu.addFront(510);
-		dequeu.addRare(2);
-		dequeu.addRare(3);
+		dequeu.addRear(2);
+		dequeu.addRear(3);
 		assertEquals(3,dequeu.lastElement());
 	}
 //==================================test removeFront method=====================================================================================
@@ -48,14 +48,14 @@ public class DequeuTest {
 	public void testRemoveFront()
 	{
 		Dequeu<Integer> dequeu = new Dequeu<>();
-		dequeu.addRare(1);
-		dequeu.addRare(2);
-		dequeu.addRare(3);
-		dequeu.addRare(4);
-		dequeu.addRare(5);
-		dequeu.addRare(6);
-		dequeu.addRare(7);
-		dequeu.addRare(8);
+		dequeu.addRear(1);
+		dequeu.addRear(2);
+		dequeu.addRear(3);
+		dequeu.addRear(4);
+		dequeu.addRear(5);
+		dequeu.addRear(6);
+		dequeu.addRear(7);
+		dequeu.addRear(8);
 		dequeu.addFront(10);
 		dequeu.removeFront();
 		System.out.println(dequeu.frontElement());
@@ -74,9 +74,9 @@ public class DequeuTest {
 			dequeu.addFront(110111);
 			dequeu.addFront(310);
 			dequeu.addFront(510);
-			dequeu.addRare(2);
-			dequeu.addRare(3);
-			dequeu.removeRare();
+			dequeu.addRear(2);
+			dequeu.addRear(3);
+			dequeu.removeRear();
 			assertEquals(2,dequeu.lastElement());
 		}
 //==============================test isEmpty method works or not=======================================================================

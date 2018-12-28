@@ -1,12 +1,12 @@
-package com.bridgelab.utilitydatastructure;
+package com.bridgelab.datastructure;
 
-public class Dequeu<T> 
+public class Deque<T> 
 {
-	public Dequeu()
+	public Deque()
 	{
 		
 	}
-	UnOrderLinkedList<T> linkedlist = new UnOrderLinkedList<>();
+	UnOrderList<T> linkedlist = new UnOrderList<>();
 	
 //==============================add element at first========================================
 	
@@ -23,16 +23,21 @@ public class Dequeu<T>
      }
      
 //==============================remove element from front============================================
-     public void removeFront()
+     public <T>T removeFront()
      {
+    	 T firstElement =  linkedlist.firstElement();
     	 linkedlist.removeFirst();
+    	return firstElement;
+    	 
      }
      
 //===============================remove element from rare=========================================================
      
-     public void removeRear()
+     public <T>T removeRear()
      {
+    	 T lastElement = linkedlist.lastElement();
     	 linkedlist.pop();
+    	 return lastElement;
      }
      
 //=================================check my dequeue is empty=======================================================================
@@ -59,5 +64,9 @@ public class Dequeu<T>
      public <T>T lastElement()
      {
     	 return linkedlist.lastElement();
+     }
+     public void display()
+     {
+    	 linkedlist.display();
      }
 }

@@ -114,7 +114,7 @@ public class LinkedListTest2 {
 		ll.add("ansar");
 		ll.add("aman");
 		ll.add("raman");
-		ll.removeAt(3);
+		ll.pop(3);
 		assertFalse("ansar"==ll.get(3));
 	}
 	

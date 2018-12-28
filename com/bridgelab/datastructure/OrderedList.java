@@ -1,4 +1,4 @@
-package com.bridgelab.utilitydatastructure;
+package com.bridgelab.datastructure;
 
 
 
@@ -31,7 +31,7 @@ public <T extends Comparable<T>> void add(T data)
 		length++;
 		return;
 	}
-	 if(((T)head.data).compareTo(data)>0.5)
+	 if(((T)head.data).compareTo(data)>0)
 	{
 		new_node.next = head;
 		head = new_node;
@@ -42,15 +42,14 @@ public <T extends Comparable<T>> void add(T data)
 	{
 		prev = temp;
 		temp = temp.next;
-		if(((T)temp.data).compareTo(data)>0.5)
+		
+		if(((T)temp.data).compareTo(data)>0)
 		{
 			prev.next =new_node;
 			new_node.next =temp;
 			length++;
 			return;
 		}
-		
-		
 	}
 	if(temp.next == null )
 	{
@@ -138,10 +137,16 @@ public boolean search(T data)
 		System.out.print("[");
 		for(int i =0 ; i < size; i++)
 		{
-			
-			System.out.print(new_node.data+",");
+
+			if(i<size-1)
+			{
+			System.out.print(new_node.data+" ,");
+			}
+			else
+			{
+				System.out.print(new_node.data+"");
+			}
 			new_node = new_node.next;
-			
 		}
 		System.out.print("]");
 		
