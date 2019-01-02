@@ -8,7 +8,7 @@ public class PrimeNumberTable {
 	String Range[] = {"0-100" ,"100-200","200-300","300-400","400-500","500-600","600-700","700-800","800-900","900-1000"};
 	String prime[][] = new String[25][10];
 	LinkedList <Integer> l = new LinkedList<Integer>();
-	l.addAll(Utility.primeFinding(1000));
+	l.addAll(Utility.primeFinding(1000));//add all prime number in linkedlist
 	
      int primenum[] =new int[l.size()]; 
      for(int i = 0;i < primenum.length; i++ )
@@ -17,9 +17,9 @@ public class PrimeNumberTable {
      }
      int count = 0;
      int r1 = 0;int r2 = 0; int  r3 =0;int r4=0;int r5=0;int r6=0;int r7=0;int r8=0;int r9=0;int rten=0;
-     int c1 = 0;int c2 = 1; int  c3 =2;int c4=3;int c5=4;int c6=5;int c7=6;int c8=7;int c9=8;int cten=9;
+     int c1 = 0;int c2 = 1; int  c3 =2;int c4=3;int c5=4;int c6=5;int c7=6;int c8=7;int c9=8;int cten=9;// give value for rows and column
      //int count = 0;
-    for(int i = 0; i < primenum.length;i++)
+    for(int i = 0; i < primenum.length;i++) // store value for particular range
     {
     	
     		if(primenum[i]<100)

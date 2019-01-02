@@ -1,38 +1,40 @@
 package com.bridgelab.objectoriented;
 
-	public class PojoStock
+import java.io.Serializable;
+
+public class PojoStock 
 	{
-		private String stockname;
-		private int stocknumber;
-		private int stockprice;
+		private String name;
+		private int number;
+		private int price;
 		
 		public String getName() {
-			return stockname;
+			return name;
 		}
 
 		public void setName(String name) {
-			this.stockname = name;
+			this.name = name;
 		}
 
-		public int getWeight() {
-			return stocknumber;
+		public int getNumber() {
+			return number;
 		}
 
-		public void setWeight(int weight) {
-			this.stocknumber = weight;
+		public void setNumber(int number) {
+			this.number = number;
 		}
 
 		public int getPrice() {
-			return stockprice;
+			return price;
 		}
 
 		public void setPrice(int price) {
-			this.stockprice = price;
+			this.price = price;
 		}
 
 		public String toString()
 		{
-			return "[name :"+stockname+",Weight:"+stocknumber+",price:"+stockprice+"]";
+			return "[name :"+name+",number of stock:"+number+",price:"+price+"]";
 		}
 	}
 

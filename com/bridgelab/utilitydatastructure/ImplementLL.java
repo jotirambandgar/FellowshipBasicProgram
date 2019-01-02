@@ -18,6 +18,7 @@ public class ImplementLL {
 		//linkedlist.deleteNode("man");
 		linkedlist.addAt(3, "bridgelab");
 		System.out.println(linkedlist.firstElement());
+		System.out.println("L:"+linkedlist.lastElement());
 		System.out.println("element at"+linkedlist.get(3));
 		System.out.println("postion "+linkedlist.positionOf("Dog"));
 		System.out.println("length of linkedlist :"+linkedlist.size());

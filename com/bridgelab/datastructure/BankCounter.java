@@ -10,7 +10,7 @@ public class BankCounter {
 		int balance = Utility.intInput();
 		System.out.println("Enter number of pepole in queue");
 		int persons = Utility.intInput();
-		int amount = (int) Utility.bankcounter(balance,persons);
+		int amount =  Utility.bankcounter(balance,persons);
 		System.out.println("new balance after total withdraws and deposit: "+amount);
 	}
 

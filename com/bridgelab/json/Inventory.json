@@ -1,0 +1,16 @@
+{
+"product":"rice": [
+ {"name" :"rice 1", "weight" : 10 ,"price" =25},
+ {"name" :"rice 2", "weight" : 15 ,"price" =35},
+ {"name" :"rice 3", "weight" : 25 ,"price" =40},
+ {"name" :"rice 4", "weight" : 50 ,"price" =20}],
+ "product":"Pulses" :[
+ {"name" :"pulse 1", "weight" : 5 ,"price" =25},
+ {"name" :"pulse 2", "weight" : 8 ,"price" =35},
+ {"name" :"pulse 3", "weight" : 9 ,"price" =45},
+ {"name" :"pulse 4", "weight" : 10 ,"price" =55}],
+ "product":"wheat":[
+ {"wheat" :"wheat 1", "weight" : 45,"price" =25},
+ {"wheat" :"wheat 2", "weight" : 68 ,"price" =35},
+ {"wheat" :"wheat 3", "weight" : 99 ,"price" =45},
+ {"wheat" :"wheat 4", "weight" : 100 ,"price" =55}],

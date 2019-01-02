@@ -1,4 +1,6 @@
 package com.bridgelab.objectoriented;
+import java.util.Arrays;
+
 import com.bridgelab.utilit.*;
 
 /**
@@ -17,8 +19,9 @@ public class DeckOfCard {
         System.out.println("Enter how many time shuffle cards");
         int times = Utility.intInput();             // taking how many time we shuffle cards
         System.out.println("Shuffle cards:");
-        cards = shuffleCard(cards,times);           // shuffle cards by using random function
+        String shuffleCards[] = shuffleCard(cards,times);           // shuffle cards by using random function
         Utility.prinStringArray(cards);             //Utility method for printing single dimensional array without shuffling
+        Arrays.sort(cards);
         String player[][] = distributeCards(cards);
         for(int i = 0 ; i < 4 ; i++)
         {
@@ -31,6 +34,7 @@ public class DeckOfCard {
         }
         
 	}
+	//====================================================================================================================
 	public static String[] getCard(String []suits,String []rank) //for creating 52 cards by adding two array
 	{
 		String []cards = new String[52];
@@ -39,12 +43,14 @@ public class DeckOfCard {
 		{
 			for(String ran : rank)
 			{
-				cards[i]=suit+ran;
+				cards[i]=ran+suit;
 				i++;
 			}
 		}
 		return cards;
 	}
+	
+	
 	public static String[] shuffleCard(String []cards,int times)
 	{
 		for(int i = 0; i < times;i++)

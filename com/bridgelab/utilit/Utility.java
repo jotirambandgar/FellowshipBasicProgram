@@ -9,7 +9,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
+
+import org.codehaus.jackson.map.ObjectMapper;
+
 import com.bridgelab.datastructure.*;
 
 public class Utility 
@@ -341,9 +346,11 @@ public static int bankcounter(int balance,int persons)
 	{
 		System.out.println("person: "+count);
 		System.out.println("1 .for Deposit ");//ask to user for deposit
-	 	System.out.println("2 .for withdraw");//ask to user for deposit
+	 	System.out.println("2 .for withdraw");//ask to user for withdraw
 	 	int choice = Utility.intInput();
 	 	int amount = 0;
+	 	while(balance>0 )
+	 	{
 	 	switch(choice)
 	 	{
 	 	case 1:
@@ -365,12 +372,18 @@ public static int bankcounter(int balance,int persons)
 	 		 	count++;
 	 			break;
 	 	}
+	 	}
 	 	
 	}
 	return (balance);
 }
 
 //===================================palindrom checker by deque=======================================================================================
+/**
+ * check my string is palindrom or not
+ * @param check --> operational string
+ * @return----> return boolean value
+ */
 public static boolean palindromCheker(String check)
 {
 	Deque <Character> deque = new Deque<>(); 
@@ -382,14 +395,10 @@ public static boolean palindromCheker(String check)
 		deque.addRear(c);
 	}
 	int flag=0;
-
 	while(deque.size()>1)//Check the size of the deque greater than 1
 	{
 		char first = ((deque.removeFront()));
 		char last =(deque.removeRear());
-		deque.display();
-		System.out.println(first);
-		System.out.println(last);
 		if( first== last)
 		{
 			flag=0;
@@ -411,4 +420,40 @@ public static boolean palindromCheker(String check)
 	}
 	return result;
 }
+//===========================================Find Day code for calendar==========================================================================================
+public static int findDcode(int d,int m,int y)
+{
+	int y0 = ((y - (14-m) / 12));
+
+int x = (y0 + y0/4 - y0/100 + y0/400);
+int m0 = (m + 12 * ((14 - m) / 12) -2);
+int d0 = (((d + x + 31*m0 / 12)%7));
+return d0;
+}
+//================================prime number finding in given rang================================================================================================
+public static List<Integer> primeFinding(int N)
+{
+	List<Integer> l=new LinkedList<Integer>();
+    int count = 0;
+    for(int i=2;i<=N;i++)
+    	{
+    	count = 0;
+    	for(int j=2;j<=i/2;j++)
+    	{
+    		if(i%j==0)
+    		{
+    			count=1;
+    		}
+    	}
+    	if(count==0)
+    	{
+    		l.add(i);
+    		
+    	}
+    	}
+    return l;
+}
+//=======================================json object mapper======================================================================================
+static ObjectMapper mapper = new ObjectMapper(); 
+//========================================
 }

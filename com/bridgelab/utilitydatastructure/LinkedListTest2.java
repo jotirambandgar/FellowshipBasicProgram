@@ -20,7 +20,7 @@ public class LinkedListTest2 {
 		ll.add("aman");
 		ll.add("raman");
 		ll.addFirst("manohar"); //add element at first position
-		System.out.println(ll.get(1));
+		//System.out.println(ll.get(1));
 		assertEquals("manohar", ll.get(1)); //check my first element is equal is expected 
 	
 	
