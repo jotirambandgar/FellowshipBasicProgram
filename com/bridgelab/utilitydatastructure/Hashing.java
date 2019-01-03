@@ -1,5 +1,5 @@
 package com.bridgelab.utilitydatastructure;
-
+import com.bridgelab.utilit.*;
 public class Hashing
 {
 	public static void main(String args[])
@@ -11,12 +11,13 @@ public class Hashing
 		{
 			arr[i]=new OrderedList<Integer>();
 		}
-
+     
       for(int i=0;i<arr.length;i++)
       {
     	  index = array[i]%array.length;
     	  arr[index].add(array[i]);
       }
+      
       for(int i=0;i<arr.length;i++)
 		{
     	  System.out.print(i+"");

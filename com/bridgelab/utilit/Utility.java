@@ -8,14 +8,19 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.text.*;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
 import com.bridgelab.datastructure.*;
+
 
 public class Utility 
 {
@@ -116,9 +121,9 @@ double head = 0 ;
 public static String leapYear(int year)
 {
 	
-	if(year % 4 == 0)
+	if(year % 4 == 0 && year%100!=0||year%400==0)
 	{
-		return " enter year leap year";
+		return " year is leap year";
 	}
 		return "Not a leap year";
 }
@@ -240,7 +245,7 @@ System.out.println("number of times he loss="+loss);
 System.out.println("percentage of win="+Perc_win);
 System.out.println("percentage of loss="+perc_loss);
 }
-//=====================================================Write File===================================================================================================================
+
 //=====================================================Balance Paranthesis=================================================
 //==============================read file contains===================================================================================
 /**
@@ -453,7 +458,23 @@ public static List<Integer> primeFinding(int N)
     	}
     return l;
 }
-//=======================================json object mapper======================================================================================
-static ObjectMapper mapper = new ObjectMapper(); 
-//========================================
+
+//========================================rgex=========================================================================================================
+//match and and replace element by regex
+public static String replacementregex(String s,String change,String req)
+{
+	Pattern p = Pattern.compile(change);
+	Matcher m = p.matcher(s);
+	return m.replaceAll(req);
+} 
+//==================================current date=====================================================================================================================
+//The SimpleDateFormat class is also used for formatting date
+public static String currentDate()
+{
+	SimpleDateFormat sdf =new SimpleDateFormat("dd/MM/yyyy");
+	Date date = new Date();
+	return sdf.format(date);
+	
+}
+
 }
