@@ -458,8 +458,8 @@ return d0;
  * @param number
  * @return-->prime number linked list
  */
-public static List<Integer> primeFinding(int number)
-{
+	public static List<Integer> primeFinding(int number)
+	{
 	List<Integer> l=new LinkedList<Integer>();
     int count = 0;
     for(int i=2;i<=number;i++)
@@ -479,7 +479,7 @@ public static List<Integer> primeFinding(int number)
     	}
     	}
     return l;
-}
+	}
 
 //========================================regex=========================================================================================================
 //match and and replace element by regex
@@ -491,12 +491,14 @@ public static List<Integer> primeFinding(int number)
  * @param required
  * @return
  */
-public static String replacementregex(String original,String change,String required)
-{
+	public static String replacementregex(String original,String change,String required)
+	{
+		
 	Pattern p = Pattern.compile(change);
+	//match change in original string
 	Matcher m = p.matcher(original);
 	return m.replaceAll(required);
-} 
+	} 
 //==================================current date=====================================================================================================================
 //The SimpleDateFormat class is also used for formatting date
 /**
@@ -504,13 +506,15 @@ public static String replacementregex(String original,String change,String requi
  * @return-->date in given format
  * 
  */
-public static String currentDate()
-{
+	public static String currentDate()
+	{
+		//define format of date
 	SimpleDateFormat simpleDateFormat =new SimpleDateFormat("dd/MM/yyyy");
+	//date class for current date 
 	Date date = new Date();
 	return simpleDateFormat.format(date);
 	
-}
+	}
 //==================================create new json file for new user=================================================================================================================
 /**
  * create new account by creating new json file with user name
@@ -519,8 +523,8 @@ public static String currentDate()
  * @throws IOException
  * @throws Exception
  */
-public static boolean createAccount(String name) throws IOException,Exception
-{
+	public static boolean createAccount(String name) throws IOException,Exception
+	{
 	//create file with user name
 	File file = new File("/home/bridgeit/Documents/json/"+name+".json");
 	
@@ -528,7 +532,7 @@ public static boolean createAccount(String name) throws IOException,Exception
 	boolean result = file.createNewFile();
 	return result;
 	
-}
+	}
 //===================================check anagram===============================================================================================================================================================
 /**
  * check given two strings are anagram or not 
@@ -536,25 +540,25 @@ public static boolean createAccount(String name) throws IOException,Exception
  * @param input2
  * @return--> return boolean value
  */
-public static boolean isAnagram(String input1, String input2)
-{
+	public static boolean isAnagram(String input1, String input2)
+	{
     //Remove all whitespace first
-    String  s1= input1.replaceAll("\\s", "");
+    String  string1= input1.replaceAll("\\s", "");
 
-    String s2 = input2.replaceAll("\\s", "");
+    String string2 = input2.replaceAll("\\s", "");
     
     boolean status = true;
 
-    if(s1.length() != s2.length())
+    if(string1.length() != string2.length())
     {
         status = false;
     }else 
     {
         //Convert into character array
 
-        char[] s1Array = s1.toLowerCase().toCharArray();
+        char[] s1Array = string1.toLowerCase().toCharArray();
 
-        char[] s2Array = s2.toLowerCase().toCharArray();
+        char[] s2Array = string2.toLowerCase().toCharArray();
 
         //Sorting both character array
 
@@ -565,7 +569,129 @@ public static boolean isAnagram(String input1, String input2)
         //Check if both arrays are equal
 
         status = Arrays.equals(s1Array, s2Array);
-    } 
-    return status;
-}
-}
+     } 
+     return status;
+	}
+//====================================day in month================================================================================
+
+	/**
+	 * find number of day in particular month
+	 * @param monthNumber
+	 * @param year
+	 * @return --> number of day
+	 */
+	public static int daysInMonth(int monthNumber,int year)
+	{
+		int endDay=0;
+		if(monthNumber == 1)
+		{
+			return (endDay=31);
+		}
+		if(monthNumber == 2)
+		{
+		if(year % 2 == 0)
+			{
+			return (endDay = 29);
+			}
+		return(endDay = 28);
+		}
+		if(monthNumber == 3)
+		{
+			return (endDay=31);
+		}
+		if(monthNumber == 4)
+		{
+			return (endDay = 30);
+		}
+		if(monthNumber == 5)
+		{
+			return (endDay=31);
+		}
+		if(monthNumber == 6)
+		{
+			return (endDay = 30);
+		}
+		if(monthNumber == 7)
+		{
+			return (endDay=31);
+		}
+		if(monthNumber == 8)
+		{
+			return (endDay=31);
+		}
+		if(monthNumber == 9)
+		{
+			return (endDay = 30);
+		}
+		if(monthNumber == 10)
+		{
+			return (endDay=31);
+		}
+		if(monthNumber == 11)
+		{
+			return (endDay = 30);
+		}
+		if(monthNumber == 12)
+		{
+			return (endDay=31);
+		}
+		return 0;
+	}
+//=======================================print calendar===================================================================================	
+	
+	/**
+	 * this method is use for printing calendar of month 
+	 * @param startingDay 
+	 * @param month
+	 * @param year
+	 */
+	public static void printCalender(int startingDay, int month, int year)
+	{
+		int endDAy=0;
+		//day array
+		String day[]= {"sun", "mon", "tues", "wed", "thu", "fri" , "sat"};
+		//find number of day in month
+		endDAy =Utility.daysInMonth(month, year);
+		int inc=1;
+		int c=0;
+		String noOfDayInMonth[][]=new String[6][7];
+		//store day in array as string
+		for(int i = 0 ; i < 6 ; i++)
+		{
+			
+			for(int j =0 ; j < 7 ; j++)
+			{
+				if((j == startingDay || c != 0) && inc <= endDAy )
+				{
+					noOfDayInMonth[i][j]=Integer.toString(inc);
+					inc++;
+					c++;
+				}
+				else
+					noOfDayInMonth[i][j]=" ";
+			}
+		}
+		for(int i = 0 ; i < 7 ; i++)
+		{
+		System.out.print("     "+day[i]);
+		}
+		System.out.println("");
+		for(int i = 0 ; i < 6 ; i++)
+		{
+			
+			for(int j = 0 ; j < 7 ; j++)
+			{
+				String s = noOfDayInMonth[i][j];
+				if(s.length()<2)
+				{
+					System.out.print("       "+s);
+				}
+				else
+				{
+				System.out.print("      "+s);
+				}
+			}
+			System.out.println("");
+			}
+	}
+	}

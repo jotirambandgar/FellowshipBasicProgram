@@ -68,7 +68,11 @@ public Stack()
 //================================return top element in stack======================================================
  public <T>  T peek()
  {
-	
+	if(head.data == null)
+	{
+		System.out.println("no element present");
+		return null;
+	}
 	 return (T) head.data;
  }
 

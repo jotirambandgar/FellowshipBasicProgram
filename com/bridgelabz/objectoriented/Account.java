@@ -53,7 +53,7 @@ public int buy(String user,int amount,String symbol) throws JsonParseException, 
 		  {
 			  int userShareNumber = userShareDetails.get(i).getNumber_of_share();
 			  userShareNumber +=numberOfShare;
-			  userShareDetails.get(i).setNumber_of_share(userSnumberOfShare);
+			  userShareDetails.get(i).setNumber_of_share(userShareNumber);
 		  }
 	  }
 	  mapper.writeValue(userFile, userShareDetails);     //write updated values into user json file

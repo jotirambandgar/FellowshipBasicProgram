@@ -7,7 +7,7 @@ public class UnOrderList<T>
 	class Node<T>
 	{
 		T data;
-		Node next;
+		Node<T> next;
 		 Node(T data)
 		{
 			this.data = data;
@@ -15,7 +15,7 @@ public class UnOrderList<T>
 		}
 		
 	}
-    UnOrderList()
+    public UnOrderList()
 	{
 		
 	}
@@ -188,23 +188,23 @@ public class UnOrderList<T>
 			}
 		
 //==================================================element at particular position===============================================================================
-		public String get(int position)
+		public <T>T get(int position)
 		{
 			Node new_node = head;
 			int count = 1;
 			if(position == 1)
 			{
-				return (String)new_node.data;
+				return (T) new_node.data;
 			}
-			String element;
+			T element;
 				while(new_node.next != null)
 				{
 				new_node = 	new_node.next;
 				count++;
 				if(count == position)
 				{
-					element = (String)new_node.data;
-					return element;
+					element = (T)new_node.data;
+					return (T) element;
 				}
 				}
 			return null ;
