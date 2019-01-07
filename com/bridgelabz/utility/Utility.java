@@ -15,7 +15,6 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.text.*;
-
 import com.bridgelabz.datastructure.dequeue.Deque;
 import com.bridgelabz.datastructure.queue.Queue;
 import com.bridgelabz.datastructure.stack.Stack;
@@ -130,9 +129,9 @@ public static String leapYear(int year)
 	
 	if(year % 4 == 0 && year%100!=0||year%400==0)
 	{
-		return " year is leap year";
+		return "leap year";
 	}
-		return "Not a leap year";
+		return "Not leap year";
 }
 
 
@@ -311,39 +310,9 @@ public void printStringArray(String array[])
 		System.out.println(array[i]);
 	}
 }
-//=====================================Balance parenthesis==================================================================================================
 
-/**
- * check my expression is balance or not
- * @param expression-------->mathematical expression
- * @return-->boolean value stack is empty or not
- */
-public static boolean checkStable(String expression)
-{
- Stack <Character> stack = new Stack<Character>();
-		
-	for(int  i = 0 ; i < expression.length(); i++)
-	{
-		if(expression.charAt(i)=='(' ||expression.charAt(i)=='{'||expression.charAt(i)=='[')
-		{
-		stack.push(expression.charAt(i));
-		}
-		if(expression.charAt(i)==')' && stack.peek().equals('('))
-		{
-		stack.pop();	
-		}
-		if(expression.charAt(i)=='}' && stack.peek().equals('{'))
-		{
-		stack.pop();	
-		}
-		if(expression.charAt(i)==']' && stack.peek().equals('['))
-		{
-		stack.pop();	
-		}
-	}
-	return stack.isEmpty();
-	
-}
+
+
 
 //=============================== bank counter==========================================================================================================================
 
@@ -582,60 +551,13 @@ return d0;
 	 */
 	public static int daysInMonth(int monthNumber,int year)
 	{
-		int endDay=0;
-		if(monthNumber == 1)
+		Integer[] days= {0,31,28,31,30,31,30,31,31,30,31,30,31};
+		//Check if the year is leap year
+		if(leapYear(year).equals("Leap Year"))
 		{
-			return (endDay=31);
+			days[2]=29;
 		}
-		if(monthNumber == 2)
-		{
-		if(year % 2 == 0)
-			{
-			return (endDay = 29);
-			}
-		return(endDay = 28);
-		}
-		if(monthNumber == 3)
-		{
-			return (endDay=31);
-		}
-		if(monthNumber == 4)
-		{
-			return (endDay = 30);
-		}
-		if(monthNumber == 5)
-		{
-			return (endDay=31);
-		}
-		if(monthNumber == 6)
-		{
-			return (endDay = 30);
-		}
-		if(monthNumber == 7)
-		{
-			return (endDay=31);
-		}
-		if(monthNumber == 8)
-		{
-			return (endDay=31);
-		}
-		if(monthNumber == 9)
-		{
-			return (endDay = 30);
-		}
-		if(monthNumber == 10)
-		{
-			return (endDay=31);
-		}
-		if(monthNumber == 11)
-		{
-			return (endDay = 30);
-		}
-		if(monthNumber == 12)
-		{
-			return (endDay=31);
-		}
-		return 0;
+		return days[monthNumber];
 	}
 //=======================================print calendar===================================================================================	
 	

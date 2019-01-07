@@ -12,16 +12,16 @@ public class Calendar {
 	public static void main(String[] args)
 	{
 		// TODO Auto-generated method stub
-		   int m;
-		   int y;
+		   int month;
+		   int year;
 	       Scanner scan = new Scanner(System.in);
            System.out.println("Enter month and year");
-           m=scan.nextInt();
-           y=scan.nextInt();
+           month=scan.nextInt();
+           year=scan.nextInt();
            //find day at first date of month 
-           int startDay = Utility.findDcode(1, m, y);
+           int startDay = Utility.findDcode(1, month, year);
            //print calendar of month
-           Utility.printCalender(startDay,m,y);
+           Utility.printCalender(startDay,month,year);
 	}
 
 }

@@ -1,19 +1,19 @@
 package com.bridgelabz.datastructure.stack;
 
 import static org.junit.Assert.*;
-
+import java.util.Scanner;
 import org.junit.Test;
 
-import com.bridgelabz.utility.*;
 
 public class BalanceParenthesesTest {
 
 	@Test
 	public void testBalanceParantheses()
 	{
+		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter Expression:");
-		String expression = Utility.stringInput();
-		assertTrue(Utility.checkStable(expression));
+		String expression = scanner.nextLine();
+		assertTrue(Implementation.checkStable(expression));
 	}
 
 }
