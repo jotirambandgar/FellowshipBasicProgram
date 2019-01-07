@@ -363,47 +363,7 @@ public static int bankcounter(int balance,int persons)
 }
 
 //===================================palindrom checker by deque=======================================================================================
-/**
- * check my string is palindrom or not
- * @param check --> operational string
- * @return----> return boolean value
- */
-public static boolean palindromCheker(String check)
-{
-	Deque <Character> deque = new Deque<>(); 
-	boolean result = false ;
-	for(int i=0;i<check.length();i++)
-	{
-		char c =check.charAt(i);
-		//adding each character to the rear of the deque
-		deque.addRear(c);
-	}
-	int flag=0;
-	while(deque.size()>1)//Check the size of the deque greater than 1
-	{
-		char first = ((deque.removeFront()));
-		char last =(deque.removeRear());
-		if( first== last)
-		{
-			flag=0;
-			
-		}
-		else
-		{
-			flag = 1;
-			break;
-		}
-	}
-	if(flag==0)
-	{
-	result = true;
-	}
-	else
-	{
-		result = false;
-	}
-	return result;
-}
+
 //===========================================Find Day code for calendar==========================================================================================
 /**
  * find day for date
@@ -567,15 +527,15 @@ return d0;
 	 * @param month
 	 * @param year
 	 */
-	public static void printCalender(int startingDay, int month, int year)
+	public static String[][] dayInMonth(int startingDay, int month, int year)
 	{
 		int endDAy=0;
 		//day array
-		String day[]= {"sun", "mon", "tues", "wed", "thu", "fri" , "sat"};
+		
 		//find number of day in month
 		endDAy =Utility.daysInMonth(month, year);
 		int inc=1;
-		int c=0;
+		int count=0;
 		String noOfDayInMonth[][]=new String[6][7];
 		//store day in array as string
 		for(int i = 0 ; i < 6 ; i++)
@@ -583,37 +543,17 @@ return d0;
 			
 			for(int j =0 ; j < 7 ; j++)
 			{
-				if((j == startingDay || c != 0) && inc <= endDAy )
+				if((j == startingDay || count != 0) && inc <= endDAy )
 				{
 					noOfDayInMonth[i][j]=Integer.toString(inc);
 					inc++;
-					c++;
+					count++;
 				}
 				else
 					noOfDayInMonth[i][j]=" ";
 			}
 		}
-		for(int i = 0 ; i < 7 ; i++)
-		{
-		System.out.print("     "+day[i]);
-		}
-		System.out.println("");
-		for(int i = 0 ; i < 6 ; i++)
-		{
-			
-			for(int j = 0 ; j < 7 ; j++)
-			{
-				String s = noOfDayInMonth[i][j];
-				if(s.length()<2)
-				{
-					System.out.print("       "+s);
-				}
-				else
-				{
-				System.out.print("      "+s);
-				}
-			}
-			System.out.println("");
-			}
+		return noOfDayInMonth;
+	
 	}
 	}

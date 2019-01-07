@@ -42,6 +42,7 @@ public Stack()
 //=============================for Last in first out==================================================================
  public void pop()
  {
+	// if()
 	 Node current = head;
 	 head = current.next;
 	 length--;

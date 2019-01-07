@@ -10,9 +10,9 @@ public class BalanceParenthesesTest {
 	@Test
 	public void testBalanceParantheses()
 	{
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter Expression:");
-		String expression = scanner.nextLine();
+		//Scanner scanner = new Scanner(System.in);
+		//System.out.println("Enter Expression:");
+		String expression = "(() {{[[]]}})";
 		assertTrue(Implementation.checkStable(expression));
 	}
 

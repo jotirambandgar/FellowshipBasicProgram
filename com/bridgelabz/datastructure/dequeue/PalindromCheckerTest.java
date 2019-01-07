@@ -26,8 +26,9 @@ public class PalindromCheckerTest
 			
 				System.out.println("Enter string:");
 				String check1 = scan.nextLine();
-				//System.out.println("HEllo");
-				boolean result =  Utility.palindromCheker(check1);
+				
+				boolean result =  Implementation.palindromCheker(check1);
+				System.out.println(result);
 			    assertTrue(result);
 			   	break;
 			
@@ -35,7 +36,7 @@ public class PalindromCheckerTest
 		case 2: 
 				System.out.println("Enter string:");
 				String check2 = scan.nextLine();
-				boolean result1  =  Utility.palindromCheker(check2);
+				boolean result1  = Implementation.palindromCheker(check2);
 				assertFalse(result1);
 				//System.out.println("hii");
 				break;

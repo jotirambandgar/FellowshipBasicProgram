@@ -58,6 +58,7 @@ public void dequeu()
 		return;
 	}
 	head = head.next;
+	
 	length--;
 }
 
@@ -99,6 +100,28 @@ public void display()
 	System.out.print("]");
 	
 	return;
+}
+//====================================get element from position================================================================================================================
+public <T>T get(int position)
+{
+	Node new_node = head;
+	int count = 1;
+	if(position == 1)
+	{
+		return (T) new_node.data;
+	}
+	T element;
+		while(new_node.next != null)
+		{
+		new_node = 	new_node.next;
+		count++;
+		if(count == position)
+		{
+			element = (T)new_node.data;
+			return (T) element;
+		}
+		}
+	return null ;
 }
 }
 

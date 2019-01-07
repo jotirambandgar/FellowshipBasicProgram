@@ -29,6 +29,7 @@ package com.bridgelabz.objectoriented;
 		public void setPrice(int price) {
 			this.price = price;
 		}
+		//System.out.println("HEllo");
 
 		public String toString()
 		{
