@@ -7,22 +7,22 @@ public class Message {
 
 	public static void main(String[] args) 
 	{
-	   Scanner sc = new Scanner(System.in);
-        String s="Read in the following message: Hello <<name>>, We have your full name\n" + 
+	  
+        String string="Read in the following message: Hello <<name>>, We have your full name\n" + 
 		"as <<full name>> in our system. your contact number is +91-­xxxxxxxxxx. Please,let us\n" + 
 		"know in case of any clarification Thank you BridgeLabz XX/XX/XXXX";
         System.out.println("Enter user name:");
-        String uname = sc.nextLine();
+        String uname = Utility.stringInput();
         System.out.println("Enter Full name:");
-        String fullname = sc.nextLine();
+        String fullname = Utility.stringInput();
         System.out.println("Enter contact number");
-        String phno = sc.nextLine();
+        String phno = Utility.stringInput();
        String date = Utility.currentDate();
-       s = Utility.replacementregex(s, "<<name>>", uname);
-       s = Utility.replacementregex(s, "<<full name>>", fullname);
-       s = Utility.replacementregex(s, "xxxxxxxxxx", phno); 
-       s = Utility.replacementregex(s, "XX/XX/XXXX", date);
-       System.out.println(""+s);
+       string = Utility.replacementregex(string, "<<name>>", uname);
+       string = Utility.replacementregex(string, "<<full name>>", fullname);
+       string = Utility.replacementregex(string, "xxxxxxxxxx", phno); 
+       string = Utility.replacementregex(string, "XX/XX/XXXX", date);
+       System.out.println(""+string);
         
 	}
 }

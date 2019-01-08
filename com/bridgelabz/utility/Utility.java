@@ -15,7 +15,8 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.text.*;
-import com.bridgelabz.datastructure.dequeue.Deque;
+
+import com.bridgelabz.datastructure.deque.Deque;
 import com.bridgelabz.datastructure.queue.Queue;
 import com.bridgelabz.datastructure.stack.Stack;
 
@@ -349,7 +350,13 @@ public static int bankcounter(int balance,int persons)
 	 		case 2:
 	 			System.out.println("Enter amount for Withdraw");
 	 			amount = intInput();
+	 			if(amount>balance)
+				{
+					System.out.println("Insufficient balance..!");
+					break;
+				}
 	 			queue.enqueue(amount); // if want to 
+	 			
 	 			balance = balance - amount;
 	 			System.out.println("amount in bank:"+balance);
 	 			persons--;

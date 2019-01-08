@@ -1,4 +1,4 @@
-package com.bridgelabz.datastructure.dequeue;
+package com.bridgelabz.datastructure.deque;
 
 
 

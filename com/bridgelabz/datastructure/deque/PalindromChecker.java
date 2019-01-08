@@ -1,7 +1,7 @@
-package com.bridgelabz.datastructure.dequeue;
+package com.bridgelabz.datastructure.deque;
 import java.util.Scanner;
 
-import com.bridgelabz.utility.*;
+
 public class PalindromChecker {
 
 	public static void main(String[] args) 
