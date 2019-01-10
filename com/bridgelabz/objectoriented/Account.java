@@ -32,7 +32,7 @@ public int buy(String user,int amount,String symbol) throws JsonParseException, 
 	  File userFile = new File("/home/bridgeit/Documents/json/"+user+".json");
 	 
 	  shareDetails = mapper.readValue(file, new TypeReference<List<PojoInstitute>>(){});//convert json into java
-	  userShareDetails = mapper.readValue(userFile, new TypeReference<List<PojoInstitute>>(){});//convert json into java
+	  //userShareDetails = mapper.readValue(userFile, new TypeReference<List<PojoInstitute>>(){});//convert json into java
 	  for(int i = 0 ; i < shareDetails.size();i++)
 	  {
 		  if(shareDetails.get(i).getSymbol().equals(symbol)) //if symbol match
@@ -44,7 +44,7 @@ public int buy(String user,int amount,String symbol) throws JsonParseException, 
 		   int number = shareDetails.get(i).getNumber_of_share();
 		   number = number - numberOfShare;
 		   shareDetails.get(i).setNumber_of_share(number);//change original share number into resultant
-		}
+		 }
 	  }
 	  mapper.writeValue(file, shareDetails);              //write updated values into company json file
 	  for(int i = 0 ; i < userShareDetails.size();i++)

@@ -1,12 +1,9 @@
 package com.bridgelabz.datastructuretestcase;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 class OrderedListTest {
 
@@ -33,7 +30,10 @@ class OrderedListTest {
 		order.add(5);
 		unorder.add(5);
 		OrderedList original = new OrderedList();
-		//assertTrue(unorder == (Integer)order);
+	assertTrue(order.search(3));//check value present in list
+		
+		order.remove(56);
+		assertFalse(order.search(56));//check value not present in list after remove 
 		
 		
 		

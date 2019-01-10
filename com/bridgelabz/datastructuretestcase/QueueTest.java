@@ -20,10 +20,7 @@ public class QueueTest {
 		queue.enqueue(7);
 		queue.enqueue(8);
 		queue.enqueue(9);
-		
-		queue.show();
-		System.out.println(queue.size());
-		System.out.println(queue.topElement());
+
 		assertEquals(9, queue.size()); // after adding element check my size equals to number of elements
 		
 		assertEquals(1, queue.topElement()); // check it follow fifo order
@@ -43,6 +40,7 @@ public class QueueTest {
 		queue.enqueue(8);
 		queue.enqueue(9);
 		queue.dequeu();
+		System.out.println("Top:"+queue.topElement());
 		assertEquals(2, queue.topElement());
 		queue.dequeu();
 		queue.dequeu();

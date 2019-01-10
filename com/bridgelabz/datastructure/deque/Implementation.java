@@ -8,6 +8,7 @@ public class Implementation {
 	 */
 	public static boolean palindromCheker(String check)
 	{
+		check = check.toLowerCase().replaceAll(" ", "");
 		Deque <Character> deque = new Deque<>(); 
 		boolean result = false ;
 		for(int i=0;i<check.length();i++)

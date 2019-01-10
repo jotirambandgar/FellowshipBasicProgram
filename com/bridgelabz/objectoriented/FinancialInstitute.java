@@ -67,6 +67,7 @@ public class FinancialInstitute
 							System.out.println("number of share sell:"+numberOfShare);
 					        break;
 					}
+					break;
 			}
 			
 		}

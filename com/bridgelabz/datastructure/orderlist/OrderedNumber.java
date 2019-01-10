@@ -1,15 +1,13 @@
 package com.bridgelabz.datastructure.orderlist;
-import static org.junit.Assert.*;
-
-import org.junit.Test;
 
 import com.bridgelabz.utility.*;
 
-public class OrderedListTest {
-OrderedList <Integer> linkedlist = new OrderedList<>();
-	@Test
-	public void testOrderList()
+public class OrderedNumber 
+{
+	public static void main(String args[])
 	{
+		OrderedList <Integer> linkedlist = new OrderedList<>();
+	
 		String file ="/home/bridgeit/Desktop/jotiram/number.txt";
 		String oldnum = Utility.readAllFromFile(file);
 		String num[] = oldnum.split(" ");
@@ -26,16 +24,8 @@ OrderedList <Integer> linkedlist = new OrderedList<>();
 		 linkedlist.display();
 		 System.out.println("Enter Search number:");
 	     int search = Utility.intInput();
-	     if(linkedlist.search(search))
-	     {
-	    	 linkedlist.remove(search);
-	     }
-	     else
-	     {
-	    	 linkedlist.add(search);
-	     }
-		 //assertFalse(linkedlist.isEmpty());
-		// assertEquals(oldNumber.length, linkedlist.size());
+	    Implementation.checkNumberPresent(linkedlist, search);
+		 
 		 linkedlist.display();
 		String newnum = "";
 		int count = 1 ;
@@ -45,8 +35,7 @@ OrderedList <Integer> linkedlist = new OrderedList<>();
 			count++;
 		}
 		System.out.println(newnum);
-		assertNotEquals(oldnum,newnum);
-		 
+ 
 	}
 
 }

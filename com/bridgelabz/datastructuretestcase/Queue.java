@@ -30,6 +30,8 @@ public int size()
 {
 	return LinkedList.size();
 }
+//=========================return first element from queue============================================================================
+
 public <T>T topElement()
 {
 	return (T)LinkedList.firstElement();
