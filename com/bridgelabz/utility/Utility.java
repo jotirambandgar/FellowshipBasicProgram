@@ -32,7 +32,7 @@ public class Utility
  */
 public static  String stringInput() // string input
 {
-String string = scanner.nextLine();
+String string =  scanner.nextLine() +scanner.nextLine();;
 
 return string;
 }
@@ -41,12 +41,13 @@ return string;
 public static int intInput()    // integer input
 {
 int number = scanner.nextInt();
-scanner.reset();
+
 return number;
 }	
 
 public static double doubleInput() // double integer
 {
+	
 return scanner.nextDouble();
 }
 public static float floatInput() // float input
