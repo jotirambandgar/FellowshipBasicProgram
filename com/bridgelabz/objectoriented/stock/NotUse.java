@@ -26,5 +26,6 @@ public static void main(String[] args) throws JsonParseException, JsonMappingExc
 	companyShare.get(2).setName("bajaj");
 	mapper.writeValue(new File("/home/bridgeit/Documents/json/share/company.json"), companyShare);
 	System.out.println(companyShare);
+	
 }
 }

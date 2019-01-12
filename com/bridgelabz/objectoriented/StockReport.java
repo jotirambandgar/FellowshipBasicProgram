@@ -21,15 +21,19 @@ public class StockReport {
 		File file = new File("/home/bridgeit/eclipse-workspace/Fellowship/Fellowship/com/bridgelabz/objectoriented/stock.json");
 		ObjectMapper mapper = new ObjectMapper();
 		List<PojoStock> stock=new ArrayList<>();
+		
+
 		stock=mapper.readValue(file, new TypeReference<List<PojoStock>>(){});
 		System.out.println("stock report:");
+		System.out.println(stock.get(0));
 		for(int i = 0 ; i < stock.size();i++)
 		{
-			System.out.println(stock.get(i));
+			//System.out.println(stock.get(i));
 			int number = stock.get(i).getNumber();
 			int price = stock.get(i).getPrice();
 			int total_price = (number*price);
 			System.out.println("Total price:"+total_price);
+			
 		}
 
 	}
