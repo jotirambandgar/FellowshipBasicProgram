@@ -60,6 +60,17 @@ public class FinanceInsatitute
 						
 						Implementation.buy(userName, symbol, buyAmount,file2);
 						break;
+				case 2: 
+					System.out.println("Enter user name:");
+					userName =Utility.stringInput() ;
+					System.out.println("Enter amount ");
+					buyAmount = Utility.intInput();
+					System.out.println("Enter company Symbol");
+					symbol = Utility.stringInput();
+					
+					
+					Implementation.sell(userName, symbol, buyAmount);
+					break;
 				}
 				
 		}	

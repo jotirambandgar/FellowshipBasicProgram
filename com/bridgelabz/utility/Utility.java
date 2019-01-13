@@ -32,8 +32,8 @@ public class Utility
  */
 public static  String stringInput() // string input
 {
-String string =  scanner.nextLine() +scanner.nextLine();;
-
+String string =  scanner.nextLine() ;
+scanner.hasNextLine();
 return string;
 }
 
@@ -41,10 +41,15 @@ return string;
 public static int intInput()    // integer input
 {
 int number = scanner.nextInt();
-
+scanner.hasNextLine();
 return number;
 }	
-
+public static long longInput()
+{
+	long number = scanner.nextLong();
+	scanner.hasNextLine();
+	return number;
+}
 public static double doubleInput() // double integer
 {
 	
