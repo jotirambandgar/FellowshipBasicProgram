@@ -21,11 +21,13 @@ public static void main(String[] args) throws JsonParseException, JsonMappingExc
 	{
 	System.out.println("i:"+i);	
 	}
-	ObjectMapper mapper = new ObjectMapper();
-	LinkedList<CompanyShare> companyShare = mapper.readValue(new File("/home/bridgeit/Documents/json/share/company.json"),new TypeReference<LinkedList<CompanyShare>>() {});
-	companyShare.get(2).setName("bajaj");
-	mapper.writeValue(new File("/home/bridgeit/Documents/json/share/company.json"), companyShare);
-	System.out.println(companyShare);
+//	ObjectMapper mapper = new ObjectMapper();
+//	LinkedList<CompanyShare> companyShare = mapper.readValue(new File("/home/bridgeit/Documents/json/share/company.json"),new TypeReference<LinkedList<CompanyShare>>() {});
+//	companyShare.get(2).setName("bajaj");
+//	mapper.writeValue(new File("/home/bridgeit/Documents/json/share/company.json"), companyShare);
+//	System.out.println(companyShare);
+File file = new File("/home/bridgeit/Documents/jotiram.txt");
+file.createNewFile();
 	
 }
 }

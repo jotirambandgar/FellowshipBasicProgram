@@ -32,6 +32,7 @@ public class StockReport {
 			int number = stock.get(i).getNumber();
 			int price = stock.get(i).getPrice();
 			int total_price = (number*price);
+			System.out.println(stock.get(i));
 			System.out.println("Total price:"+total_price);
 			
 		}
