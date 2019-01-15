@@ -17,14 +17,11 @@ import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.Collections;
 interface manager
 {
 	void save1(PersonDetails person,String addressBook) throws JsonGenerationException, JsonMappingException, IOException ;
-		// TODO Auto-generated method stub
-		
-	
-	  void add() throws JsonGenerationException, JsonMappingException, IOException;
+	void add() throws JsonGenerationException, JsonMappingException, IOException;
 	void delete(String name,String addressBook) throws JsonParseException, JsonMappingException, IOException;
-	void sortByName() throws JsonParseException, JsonMappingException, IOException;
-	void sortByZip();
-    void print(String bookName);
+	void sortByName(String bookName) throws JsonParseException, JsonMappingException, IOException;
+	void sortByZip(String bookName) throws JsonParseException, JsonMappingException, IOException;
+    void print(String bookName,String name) throws JsonParseException, JsonMappingException, IOException;
 }
 class AddressBookManager  implements manager {
 	static ObjectMapper mapper = new ObjectMapper();
@@ -94,7 +91,97 @@ class AddressBookManager  implements manager {
 		
 		
 		}
-	
+	public static void editPerson(String name,String addressBook) throws JsonParseException, JsonMappingException, IOException
+	{
+		int count = 0 ;
+    	int tempCount = 0 ;	
+    	String temp = "";
+    	int stop = 0 ;
+    	LinkedList <PersonDetails> details = mapper.readValue(new File("/home/bridgeit/Documents/json/addressbook/"+addressBook+".json"), new TypeReference<LinkedList<PersonDetails>>() {});
+    	for(PersonDetails person: details)
+		{
+    		if(person.getFirstName().equals(name))
+			{
+				tempCount = count ;
+			}	
+    		count++ ;
+		}
+    	while(stop != 2)
+    	{
+    	System.out.println("1. for edit first name");
+    	System.out.println("2. for edit last name");
+    	System.out.println("3. for edit address and phone number");
+    	count = Utility.intInput();
+    	switch(count)
+    	{
+    	case 1:
+    		System.out.println("Enter new first name :");
+    		firstName = Utility.stringInput();
+    		details.get(tempCount).setFirstName(firstName);
+    		break;
+    	case 2:
+    		System.out.println("Enter new first name :");
+    		lastName = Utility.stringInput();
+    		details.get(tempCount).setLastName(lastName);
+    		break;
+    case 3:
+    		System.out.println("press \n 1. for edit street");
+    		System.out.println("2. for edit city");
+    		System.out.println("3. for edit state");
+    		System.out.println("4 . for edit zip code");
+    		System.out.println("5 . for edit phone number");
+    		int choice = Utility.intInput();
+    		if(choice == 1)
+    		{
+    			System.out.println("Enter street:");
+    			temp = Utility.stringInput();
+    			details.get(tempCount).getAddress().setStreet(temp);
+    		}
+    		if(choice == 2)
+    		{
+    			System.out.println("Enter city:");
+    			temp = Utility.stringInput();
+    			details.get(tempCount).getAddress().setCity(temp);
+    			
+    		}
+    		if(choice == 3)
+    		{
+    			System.out.println("Enter state:");
+    			temp = Utility.stringInput();
+    			details.get(tempCount).getAddress().setState(temp);
+    			
+    		}
+    		if(choice == 4)
+    		{
+    			System.out.println("Enter zip:");
+    			int zip = Utility.intInput();
+    			details.get(tempCount).getAddress().setZip(zip);;
+    			
+    		}
+    		if(choice == 5)
+    		{
+    			System.out.println("Enter mobile number:");
+    			Long phoneNumber =  Utility.longInput();
+    			
+    			System.out.println("press 1 to add landLine ");
+    			choice =  Utility.intInput();
+    			if(choice == 1)
+    			{
+    				long landline =Utility.longInput();
+    				details.get(tempCount).getPhoneNumber().setLandlineNumber(landline);
+    			}
+    			details.get(tempCount).getPhoneNumber().setMobileNumber(phoneNumber);
+    			
+    		}
+    	}
+    	System.out.println("for stop press 2. or for continue press any number");
+    	stop = Utility.intInput();
+    	}
+    	if(stop == 2)
+    	{
+    		mapper.writeValue(new File("/home/bridgeit/Documents/json/addressbook/"+addressBook+".json"), details);
+    	}
+	}
 	
 	public  void save1(PersonDetails person,String addressBook) throws JsonGenerationException, JsonMappingException, IOException
 	{
@@ -160,9 +247,8 @@ class AddressBookManager  implements manager {
 		}
 	}
 	
-	public void sortByName() throws JsonParseException, JsonMappingException, IOException {
-		System.out.println("Enter address Book");
-		bookName = Utility.stringInput();
+	public void sortByName(String bookName ) throws JsonParseException, JsonMappingException, IOException {
+	
 		LinkedList <PersonDetails> details = mapper.readValue(new File("/home/bridgeit/Documents/json/addressbook/"+bookName+".json"), new TypeReference<LinkedList<PersonDetails>>() {});
 		LinkedList<String> name = new LinkedList<>();
 		int count = 0;
@@ -184,30 +270,83 @@ class AddressBookManager  implements manager {
 		}
 		System.out.println("sort by first name");
 		count = 0;
-		while(count < names.length)
-		{
-			System.out.println("hii");
-			for(PersonDetails person: details)
-			{
-				if(person.getFirstName().equals(names[count]))
+		
+			
+			for(String s: names)
+			{int count2 = 0;
+				while(count2<details.size()) 
 				{
-					System.out.println(person);
+				if(details.get(count2).getFirstName().equals(s))
+				{
+					System.out.println(details.get(count2));
 				}
-				count++;
+				count2++;
+				}
+				
+			
+		}
+	}
+	
+	public void sortByZip(String bookName) throws JsonParseException, JsonMappingException, IOException {
+		LinkedList <PersonDetails> details = mapper.readValue(new File("/home/bridgeit/Documents/json/addressbook/"+bookName+".json"), new TypeReference<LinkedList<PersonDetails>>() {});
+		LinkedList<Integer> zip = new LinkedList<>();
+		int count = 0;
+		for(PersonDetails person :details)
+		{
+		zip.add(person.getAddress().getZip());
+			
+		}
+		int zipArray[] = new int[zip.size()];
+		for(int value: zip)
+		{
+			zipArray[count] = value;
+			count++;
+		}
+		Arrays.sort(zipArray);
+		
+		System.out.println("sort by zip");
+		count = 0;
+		
+			
+			for(int s: zipArray)
+			{int count2 = 0;
+				while(count2<details.size()) 
+				{
+				if(details.get(count2).getAddress().getZip() == s)
+				{
+					System.out.println(details.get(count2));
+				}
+				count2++;
+				}
+				
+			
+		}
+		
+		
+	}
+	
+	public void print(String addressBook,String name) throws JsonParseException, JsonMappingException, IOException 
+	{
+		LinkedList <PersonDetails> details = mapper.readValue(new File("/home/bridgeit/Documents/json/addressbook/"+addressBook+".json"), new TypeReference<LinkedList<PersonDetails>>() {});
+		for(PersonDetails person: details)
+		{
+			if(person.getFirstName().equals(name))
+			{
+				System.out.println(person);
 			}
 		}
 	}
-	@Override
-	public void sortByZip() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void print(String addressBook) {
-		// TODO Auto-generated method stub
-		
-	}
 
+	public void saveAs(String oldName,String newName,String extension)
+	{
+		File file1 = new File("/home/bridgeit/Documents/json/addressbook/"+oldName+".json");
+		File file2 = new File("/home/bridgeit/Documents/json/addressbook/"+newName+"."+extension);
 	
+		boolean result = file1.renameTo(file2);
+		if(result == false )
+		{
+			System.out.println("not change");
+		}
+	}
 
 }
