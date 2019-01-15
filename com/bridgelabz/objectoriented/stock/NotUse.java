@@ -17,9 +17,8 @@ public static void main(String[] args) throws JsonParseException, JsonMappingExc
 	LocalTime time = LocalTime.now();
 	System.out.println(time);
 	int arr[] = {1,2,3,4,5,6,7};
-	for (int i : arr)
-	{
-	System.out.println("i:"+i);	
+	for (int i : arr) {
+		
 	}
 //	ObjectMapper mapper = new ObjectMapper();
 //	LinkedList<CompanyShare> companyShare = mapper.readValue(new File("/home/bridgeit/Documents/json/share/company.json"),new TypeReference<LinkedList<CompanyShare>>() {});

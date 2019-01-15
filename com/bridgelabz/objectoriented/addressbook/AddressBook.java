@@ -97,16 +97,19 @@ public class AddressBook {
         	    			{
         	    				manager.sortByZip(addressBookName);
         	    			}
+        	    			break;
         	    	case 5: 
         	    		    System.out.println("Enter First name of person ");
         	    		    firstName = Utility.stringInput();
         	    		    manager.print(addressBookName, firstName);
+        	    		    break;
         	    	case 6 :
         	    		     System.out.println("Enter new address book name");
         	    		     String  addName = Utility.stringInput();
         	    		     System.out.println("Enter file extension");
         	    		     String extension = Utility.stringInput();
         	    		     manager.saveAs(addressBookName, addName, extension);
+        	    		     break;
         	    	default :
              			    System.out.println("Invalid choice");
              			     break;
@@ -118,7 +121,7 @@ public class AddressBook {
         			break;
         }
       
-        	
+        
         System.out.println("To continue press 1 \n and for exit press any number ");
         repeat = Utility.intInput();
 	}

@@ -62,7 +62,7 @@ class AddressBookManager  implements manager {
 		int zip =  Utility.intInput();
 		
 		System.out.println("Enter mobile number:");
-		Long phoneNumber =  Utility.longInput();
+		int phoneNumber =  Utility.intInput();
 		
 		System.out.println("press 1 to add landLine ");
 		int choice =  Utility.intInput();
@@ -80,7 +80,7 @@ class AddressBookManager  implements manager {
 		person.setLastName(lastName);
 		person.setAddress(address);
 		person.setPhoneNumber(phone);
-		System.out.println("press "+"$"+"to save details");
+		System.out.println("press "+"$"+" to save details");
 		System.out.println("");
 		String save = Utility.stringInput();
 		if(save.equals("$"))
@@ -207,7 +207,15 @@ class AddressBookManager  implements manager {
 		LinkedList<PersonDetails> multiple= mapper.readValue(new File("/home/bridgeit/Documents/json/addressbook/"+addressBook+".json"),new TypeReference<LinkedList<PersonDetails>>() {});
 		multiple.add(person);
 		mapper.writeValue(new File("/home/bridgeit/Documents/json/addressbook/"+addressBook+".json"),multiple);
-		
+		long afterWriteLength =new File("/home/bridgeit/Documents/json/addressbook/"+addressBook+".json").length();
+		if(preFileLength < afterWriteLength)
+		{
+			System.out.println("data successfully store in file");
+		}
+		else
+		{
+			System.out.println("data not fill in file");
+		}
 		}
 	}
 	
