@@ -1,4 +1,4 @@
-package com.bridgelabz.datastructure.designpattern.singletone;
+package com.bridgelabz.designpattern.creational;
 class F
 {
 	private F()

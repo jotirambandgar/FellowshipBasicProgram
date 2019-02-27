@@ -1,4 +1,4 @@
-package com.bridgelabz.datastructure.designpattern.singletone;
+package com.bridgelabz.designpattern.creational;
 /**
  * create lazy instantiation to overcome Eager object memory management 
  * @author jotiram bandgar

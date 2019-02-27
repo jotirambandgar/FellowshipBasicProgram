@@ -8,14 +8,14 @@ public class Calender {
 	{
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter month and year:");
-		   int month = scanner.nextInt();
-		   int year =  scanner.nextInt();
+		int month = scanner.nextInt();
+		int year =  scanner.nextInt();
           
-           //find day at first date of month 
-           int startDay = Implementation.findDcode(1, month, year);
-           //print calendar of month
-          String dayOfMonth[][] = Implementation.dayInMonth(startDay,month,year);
-          String day[]= {"sun", "mon", "tues", "wed", "thu", "fri" , "sat"};
+        //find day at first date of month 
+        int startDay = Implementation.findDcode(1, month, year);
+        //print calendar of month
+        String dayOfMonth[][] = Implementation.dayInMonth(startDay,month,year);
+        String day[]= {"sun", "mon", "tues", "wed", "thu", "fri" , "sat"};
       		for(int i = 0 ; i < 7 ; i++)
       		{
       			System.out.print("     "+day[i]);
@@ -37,8 +37,8 @@ public class Calender {
       				}
       			}
       			System.out.println("");
-      			}
-      		scanner.close();
+      		}
+      	scanner.close();
 	}
 
 

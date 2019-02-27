@@ -28,7 +28,7 @@ class AddressBookManager  implements manager {
 	static String firstName;
 	static String lastName;
 	static String bookName;
-	
+	//create new address book
 	public static boolean createAddressBook(String name) throws IOException,Exception
 	{
 	//create file with user name
@@ -40,6 +40,7 @@ class AddressBookManager  implements manager {
 	return result;
 	
 	}
+	//add person in address book
 	public static void addPersonInAddressBook(String addressBook,String firstName,String lastName) throws JsonGenerationException, JsonMappingException, IOException {
 		
 		if(new File("/home/bridgeit/Documents/json/addressbook/"+addressBook+".json").exists()==false)
@@ -91,6 +92,7 @@ class AddressBookManager  implements manager {
 		
 		
 		}
+	//to edit person details
 	public static void editPerson(String name,String addressBook) throws JsonParseException, JsonMappingException, IOException
 	{
 		int count = 0 ;
@@ -117,7 +119,7 @@ class AddressBookManager  implements manager {
     	case 1:
     		System.out.println("Enter new first name :");
     		firstName = Utility.stringInput();
-    		details.get(tempCount).setFirstName(firstName);
+    		details.get(tempCount).setFirstName(name);
     		break;
     	case 2:
     		System.out.println("Enter new first name :");
@@ -182,7 +184,7 @@ class AddressBookManager  implements manager {
     		mapper.writeValue(new File("/home/bridgeit/Documents/json/addressbook/"+addressBook+".json"), details);
     	}
 	}
-	
+	//save details after entering all data into file
 	public  void save1(PersonDetails person,String addressBook) throws JsonGenerationException, JsonMappingException, IOException
 	{
 		
@@ -190,7 +192,7 @@ class AddressBookManager  implements manager {
 		{
 		LinkedList<PersonDetails> newPerson = new LinkedList<>();
 		newPerson.add(person);
-		System.out.println(newPerson);
+		//System.out.println(newPerson);
 		mapper.writeValue(new File("/home/bridgeit/Documents/json/addressbook/"+addressBook+".json"), newPerson);
 		if(new File("/home/bridgeit/Documents/json/addressbook/"+addressBook+".json").length() != 0)
 		{
@@ -229,19 +231,24 @@ class AddressBookManager  implements manager {
 		bookName = Utility.stringInput();
 		addPersonInAddressBook(bookName, firstName, lastName);
 	}
-
+	//delete person from address book
 	public void delete(String name, String addressBook) throws JsonParseException, JsonMappingException, IOException {
 		LinkedList <PersonDetails> details = mapper.readValue(new File("/home/bridgeit/Documents/json/addressbook/"+addressBook+".json"), new TypeReference<LinkedList<PersonDetails>>() {});
 		int count = 0 ;
 		boolean result = true;
+		//to remove the given person
 		for(PersonDetails person: details)
 		{
 			if(person.getFirstName().equals(name))
 			{
 				details.remove(count);
+				System.out.println("person successfully remove");
+				mapper.writeValue(new File("/home/bridgeit/Documents/json/addressbook/"+addressBook+".json"), details);
+				
 			}
 			count++;
 		}
+		//to check whether the person is removed or not 
 		for(PersonDetails person: details)
 		{
 			if(person.getFirstName().equals(name))
@@ -265,21 +272,24 @@ class AddressBookManager  implements manager {
 		name.add(person.getFirstName());
 			
 		}
+		// string array to store named for sorting purpose
 		String names[] = new String[name.size()];
+		
+		//loop for store linked list object in an array
 		for(String value: name)
 		{
-			names[count] = value.replaceAll(" ", "");
+			names[count] = value;
 			count++;
 		}
 		Arrays.sort(names);
-		for(String s:names)
-		{
-			System.out.println(s);
-		}
+//		for(String s:names)
+//		{
+//			System.out.println(s);
+//		}
 		System.out.println("sort by first name");
-		count = 0;
 		
-			
+		//loop to print sorted data by name
+		//count = 0;	
 			for(String s: names)
 			{int count2 = 0;
 				while(count2<details.size()) 
@@ -313,7 +323,7 @@ class AddressBookManager  implements manager {
 		Arrays.sort(zipArray);
 		
 		System.out.println("sort by zip");
-		count = 0;
+	//	count = 0;
 		
 			
 			for(int s: zipArray)
@@ -332,7 +342,7 @@ class AddressBookManager  implements manager {
 		
 		
 	}
-	
+	//print person details
 	public void print(String addressBook,String name) throws JsonParseException, JsonMappingException, IOException 
 	{
 		LinkedList <PersonDetails> details = mapper.readValue(new File("/home/bridgeit/Documents/json/addressbook/"+addressBook+".json"), new TypeReference<LinkedList<PersonDetails>>() {});
@@ -344,7 +354,7 @@ class AddressBookManager  implements manager {
 			}
 		}
 	}
-
+	//for changing name and extension of addressbook
 	public void saveAs(String oldName,String newName,String extension)
 	{
 		File file1 = new File("/home/bridgeit/Documents/json/addressbook/"+oldName+".json");
@@ -355,6 +365,19 @@ class AddressBookManager  implements manager {
 		{
 			System.out.println("not change");
 		}
+	}
+	//to see list of address book in folder	
+public File[] openFolder()
+	{
+		File folder = new File("/home/bridgeit/Documents/json/addressbook");
+		return folder.listFiles();
+	}
+	public static void openAddressbook(String addressbook) throws JsonParseException, JsonMappingException, IOException
+	{
+		LinkedList <PersonDetails> details = mapper.readValue(new File("/home/bridgeit/Documents/json/addressbook/"+addressbook+".json"), new TypeReference<LinkedList<PersonDetails>>() {});
+		System.out.println(""+addressbook);
+		System.out.println(details);
+		
 	}
 
 }
